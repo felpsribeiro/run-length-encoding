@@ -5,25 +5,26 @@ extern std::ofstream fout;
 
 void encoding()
 {
-    char current = fin.get();
+    unsigned char current = fin.get();
 
     int cont = 0;
     unsigned char charCont;
 
-    while (current != EOF)
+    while (!fin.eof())
     {
         cont++;
         fout << current;
 
         if (cont == 3)
         {
-            while (current != EOF && current == fin.peek() && cont <= 255)
+            while (current != EOF && current == fin.peek() && cont <= 257)
             {
                 cont++;
                 current = fin.get();
             }
             charCont = cont - 3;
             fout << charCont;
+            cont = 0;
         }
 
         if (current != fin.peek())
