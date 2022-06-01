@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include "encoding.h"
+#include "decoding.h"
 using namespace std;
 
 // arquivo de entrada
@@ -53,7 +54,7 @@ int main(int argc, char **argv)
         // descomprimir
         else if (argv[1][1] == 'x')
         {
-            cout << "Descomprimindo\n";
+            decoding();
         }
 
         fin.close();
