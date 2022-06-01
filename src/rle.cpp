@@ -1,10 +1,14 @@
 #include <string.h>
 #include <fstream>
 #include <iostream>
+#include "encoding.h"
 using namespace std;
 
 // arquivo de entrada
 ifstream fin;
+
+// arquivo de saída
+ofstream fout;
 
 void messageHelp();
 
@@ -25,7 +29,7 @@ int main(int argc, char **argv)
             exit(EXIT_FAILURE);
         }
     }
-    else if (argc == 3)
+    else if (argc == 4 && (argv[1][1] == 'c' || argv[1][1] == 'x'))
     {
         fin.open(argv[2]);
 
@@ -39,22 +43,22 @@ int main(int argc, char **argv)
 
         cout << endl;
 
+        fout.open(argv[3]);
+
         // comprimir
         if (argv[1][1] == 'c')
         {
-            cout << "Comprimindo\n";
-            fin.close();
-            exit(EXIT_SUCCESS);
+            encoding();
         }
         // descomprimir
         else if (argv[1][1] == 'x')
         {
             cout << "Descomprimindo\n";
-            fin.close();
-            exit(EXIT_SUCCESS);
         }
 
         fin.close();
+        fout.close();
+        exit(EXIT_SUCCESS);
     }
 
     cout << "Falha na execução do compactador...\n";
@@ -66,12 +70,12 @@ void messageHelp()
 {
     cout << "Uso\n\n"
 
-         << "   rle -c <nome-do-arquivo>\n"
+         << "   rle -c <nome-do-arquivo-de-entrada> <nome-do-arquivo-de-saida>\n"
          << "   Compactar um arquivo.\n\n"
 
          << "  	ou\n\n"
 
-         << "   rle -x <nome-do-arquivo>\n"
+         << "   rle -x <nome-do-arquivo-de-entrada> <nome-do-arquivo-de-saida>\n"
          << "   Descompactar um arquivo.\n\n"
 
          << "Opções\n\n"
