@@ -1,0 +1,23 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "g++ rle",
+			"command": "g++",
+			"args": [
+				"${workspaceFolder}/src/rle.cpp",
+				"${workspaceFolder}/src/encoding.cpp",
+				"${workspaceFolder}/src/decoding.cpp",
+				"-O2",
+				"-std=c++17",
+				"-o",
+				"rle.out"
+			],
+			"group": "build",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [],
+		}
+	]
+}
