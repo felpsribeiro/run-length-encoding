@@ -21,9 +21,9 @@ Copie o codigo e abra no VS Code. Execute a tarrefa de build (Ctrl+Shift+B) para
 O programa principal, rle.out, roda em dois modos de operação: compactação e descompactação.
 - Para compactar um arquivo qualquer, passe os parametros:
 ~~~shell
-$ rle -c <nome-do-arquivo-de-entrada> <nome-do-arquivo-de-saida>
+$ ./rle -c <nome-do-arquivo-de-entrada> <nome-do-arquivo-de-saida>
 ~~~
 - Para descompactar, passe os parametros:
 ~~~shell
-$ rle -x <nome-do-arquivo-de-entrada> <nome-do-arquivo-de-saida>
+$ ./rle -x <nome-do-arquivo-de-entrada> <nome-do-arquivo-de-saida>
 ~~~
